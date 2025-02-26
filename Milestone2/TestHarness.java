@@ -12,12 +12,14 @@ import Milestone2.Models.PhonebookEntry;
 public class TestHarness {
 
 	// Contact overrides hashcode && equals.  Observe collision here.
+	
 	private static Map<Contact, List<PhonebookEntry>> phonebook = new HashMap<>();
 	private static Contact p1, p2, p3, p4, p5;
 	private static PhonebookHandler phonebookHander;
 
 
 	public static void main(String[] args) throws InterruptedException {
+		
 		init();
 		
 		//TODO: 2 cases:
@@ -47,33 +49,38 @@ public class TestHarness {
 		// 1) a call to search finds the user and displays their entries 
 		//(2) a call to search does not find the user & displays some detail illustrating same
 		TEST_Search(phonebookHander, sortedContacts, "Juan");
-		 
 
 	}
 
 	// 
 	public static List<Contact> TEST_Sort(PhonebookHandler phonebookHandler) {
+
 		//TODO: call your phonebookHander & have it sort the contacts.  Return those.
 		
 		List<Contact> sortedContacts = phonebookHander.sortByName();
 		return sortedContacts;
+
 	}
 
 	
 	public static void TEST_Search(PhonebookHandler phonebookHandler, List<Contact> sortedContacts, String name) {
+	
 		//TODO: use the sorted contacts and a name to search for.  
 	  
-		
 		System.out.println("\n -- Search results for " + name + " -- ");
 		List<PhonebookEntry> selectedEntries = phonebookHander.binarySearch(sortedContacts, name);
+		
 		for (PhonebookEntry entry : selectedEntries) {
-			
-			System.out.println("Entries for " + name + " " +  entry.getType() + " " + entry.getPhoneNumber());
+
+			System.out.println("Entries for " + name + " " + entry.getType() + " " + entry.getPhoneNumber());
 		}
+		
 	}
 	
 	public static void TEST_Display(List<Contact> sortedContacts) {
+		
 		phonebookHander.display(sortedContacts);
+
 	}
 
 	public static void TEST_Equals(Contact r1, Contact r2) {
@@ -82,22 +89,27 @@ public class TestHarness {
 		System.out.println(r1.equals(r2));
 
 		System.out.println();
+
 	}
 
 	public static void TEST_hashcode(Contact r1, Contact r2) {
 
 		System.out.println("Checking r1.hashcode = r2.hashcode for: \n" + r1.toString() + "\n" + r2.toString());
+		
 		if (r1.hashCode() == r2.hashCode()) {
+
 			System.out.println("Hash matches - we're in the same bucket ( collision!): " + r1.hashCode());
 
 		} else {
+
 			System.out.println("NO hash match: " + r1.hashCode() + " / " + r2.hashCode());
 
 		}
+
 		System.out.println();
+
 	}
  
-
 	/** TODO
 	 * 
 	 * Build 5 contacts
@@ -107,7 +119,7 @@ public class TestHarness {
 	 * Feel free to update 
 	 * 
 	 * @throws InterruptedException
-	 */
+	*/
 	public static void init() throws InterruptedException {
 
 		System.out.println("Building Contacts ....");
