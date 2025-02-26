@@ -1,9 +1,8 @@
 package Milestone2;
 
-import java.util.*;
-
 import Milestone2.Models.Contact;
 import Milestone2.Models.PhonebookEntry;
+import java.util.*;
 
 /**
  * PhonebookHandler - supports 
@@ -30,6 +29,7 @@ public class PhonebookHandler implements iPhonebookHandler {
         sortedContacts.forEach((contact) -> {
 
             System.out.println("Contact: " + contact.getName()); // TODO: make better
+
 
         });
 
