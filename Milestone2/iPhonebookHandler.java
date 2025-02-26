@@ -1,7 +1,11 @@
-package template;
+package Milestone2;
+
 import java.util.List;
 
-public interface iPhonebookHander {
+import Milestone2.Models.Contact;
+import Milestone2.Models.PhonebookEntry;
+
+public interface iPhonebookHandler {
 	
 	//bubble sort / merge sort would do it
 	public List<Contact> sortByName();

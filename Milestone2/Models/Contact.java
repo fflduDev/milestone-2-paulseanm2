@@ -1,4 +1,4 @@
-package template;
+package Milestone2.Models;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * 
  */
 
-class Contact {
+public class Contact {
 
     private String name;
     private List<PhonebookEntry> phonebookEntries;

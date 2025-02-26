@@ -1,9 +1,13 @@
-package template;
+package Milestone2;
+
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+
+import Milestone2.Models.Contact;
+import Milestone2.Models.PhonebookEntry;
 
 public class TestHarness {
 

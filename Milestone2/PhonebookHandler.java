@@ -1,6 +1,9 @@
-package template;
+package Milestone2;
 
 import java.util.*;
+
+import Milestone2.Models.Contact;
+import Milestone2.Models.PhonebookEntry;
 
 /**
  * PhonebookHandler - supports 
@@ -11,7 +14,7 @@ import java.util.*;
  * value: List<phonebookEntries>
  */
 
-public class PhonebookHandler implements iPhonebookHander {
+public class PhonebookHandler implements iPhonebookHandler {
 
     private Map<Contact, List<PhonebookEntry>> phonebook;
     

@@ -1,11 +1,11 @@
-package template;
+package Milestone2.Models;
 
 /**
  *   model a PhonebookEntry 
  *   PhonebookEntry has a phoneNumber and type
 */
 
-class PhonebookEntry {
+public class PhonebookEntry {
 
     private String phoneNumber;
     private String type;
