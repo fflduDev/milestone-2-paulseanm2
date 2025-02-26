@@ -2,15 +2,34 @@ package template;
 
 /**
  *   model a PhonebookEntry 
- *   
  *   PhonebookEntry has a phoneNumber and type
- *   
- *   
- *   
- */
+*/
 
-class PhonebookEntry{
+class PhonebookEntry {
 
+    private String phoneNumber;
+    private String type;
+
+    public PhonebookEntry(String phoneNumber, String type) {
+
+        this.phoneNumber = phoneNumber;
+        this.type = type;
+
+    }
+
+    // accessors
+
+    public String getPhoneNumber() {
+
+        return phoneNumber;
+
+    }
+
+    public String getType() {
+
+        return type;
+
+    }
  
 }
 	
