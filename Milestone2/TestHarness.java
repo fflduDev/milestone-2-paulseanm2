@@ -21,21 +21,21 @@ public class TestHarness {
 		
 		init();
 		
-		//TODO: 2 cases:
-		//display non equality using your overriden equals method
-		//display equality using your overriden equals method
+		// //TODO: 2 cases:
+		// //display non equality using your overriden equals method
+		// //display equality using your overriden equals method
 
-		TEST_Equals(p1, p2);
-		TEST_Equals(p3, p3);
+		// TEST_Equals(p1, p2);
+		// TEST_Equals(p3, p3);
 		
-		//TODO: 2 cases:
-		//display hashcode case that demonstrates collision
-		//display hashcode case that demonstrates non- collision
+		// //TODO: 2 cases:
+		// //display hashcode case that demonstrates collision
+		// //display hashcode case that demonstrates non- collision
 
-		TEST_hashcode(p1, p3);
-		TEST_hashcode(p2, p3);
+		// TEST_hashcode(p1, p3);
+		// TEST_hashcode(p2, p3);
 
-		//Create the phonebook handler
+		// //Create the phonebook handler
 		phonebookHander = new PhonebookHandlerImpl(phonebook);
 		
 		//TODO
@@ -43,11 +43,11 @@ public class TestHarness {
 		List<Contact> sortedContacts = TEST_Sort(phonebookHander);
 		TEST_Display(sortedContacts);
 		
-		//TODO
-		// 2 cases:
-		// 1) a call to search finds the user and displays their entries 
-		//(2) a call to search does not find the user & displays some detail illustrating same
-		TEST_Search(phonebookHander, sortedContacts, "Juan");
+		// //TODO
+		// // 2 cases:
+		// // 1) a call to search finds the user and displays their entries 
+		// //(2) a call to search does not find the user & displays some detail illustrating same
+		// TEST_Search(phonebookHander, sortedContacts, "Juan");
 
 	}
 

@@ -2,6 +2,8 @@ package Milestone2;
 
 import Milestone2.Models.Contact;
 import Milestone2.Models.PhonebookEntry;
+import Utils.Sorting;
+
 import java.util.*;
 
 /**
@@ -35,11 +37,14 @@ public class PhonebookHandlerImpl implements PhonebookHandler {
 
     }
     
-    
     @Override
     public List<Contact> sortByName() {
 
-        return null; // TODO: implement sort
+        Contact[] contactsArr = phonebook.keySet().toArray(new Contact[0]);
+
+        Contact[] sorted = Sorting.quickSort(contactsArr, 0, contactsArr.length - 1);
+
+        return Arrays.asList(sorted);
 
     }
 

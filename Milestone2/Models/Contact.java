@@ -1,5 +1,6 @@
 package Milestone2.Models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  * 
  */
 
-public class Contact {
+public class Contact implements Comparable<Contact> {
 
     private String name;
     private List<PhonebookEntry> phonebookEntries;
@@ -20,6 +21,7 @@ public class Contact {
     public Contact(String name) {
 
         this.name = name;
+        this.phonebookEntries = new ArrayList<>();
 
     }
 
@@ -42,6 +44,15 @@ public class Contact {
     public void addPhonebookEntry(String number, String type) {
 
         this.phonebookEntries.add(new PhonebookEntry(number, type));
+
+    }
+
+    // override hashCode and equals
+
+    @Override
+    public int compareTo(Contact other) {
+
+        return this.name.compareTo(other.getName());
 
     }
 
