@@ -14,7 +14,7 @@ public class TestHarness {
 	
 	private static Map<Contact, List<PhonebookEntry>> phonebook = new HashMap<>();
 	private static Contact p1, p2, p3, p4, p5;
-	private static PhonebookHandler phonebookHander;
+	private static PhonebookHandlerImpl phonebookHander;
 
 
 	public static void main(String[] args) throws InterruptedException {
@@ -36,7 +36,7 @@ public class TestHarness {
 		TEST_hashcode(p2, p3);
 
 		//Create the phonebook handler
-		phonebookHander = new PhonebookHandler(phonebook);
+		phonebookHander = new PhonebookHandlerImpl(phonebook);
 		
 		//TODO
 		//call 
@@ -52,7 +52,7 @@ public class TestHarness {
 	}
 
 	// 
-	public static List<Contact> TEST_Sort(PhonebookHandler phonebookHandler) {
+	public static List<Contact> TEST_Sort(PhonebookHandlerImpl phonebookHandler) {
 
 		//TODO: call your phonebookHander & have it sort the contacts.  Return those.
 		
@@ -62,7 +62,7 @@ public class TestHarness {
 	}
 
 	
-	public static void TEST_Search(PhonebookHandler phonebookHandler, List<Contact> sortedContacts, String name) {
+	public static void TEST_Search(PhonebookHandlerImpl phonebookHandler, List<Contact> sortedContacts, String name) {
 	
 		//TODO: use the sorted contacts and a name to search for.  
 	  

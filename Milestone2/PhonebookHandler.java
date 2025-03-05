@@ -1,53 +1,24 @@
 package Milestone2;
 
+import java.util.List;
+
 import Milestone2.Models.Contact;
 import Milestone2.Models.PhonebookEntry;
-import java.util.*;
 
-/**
- * PhonebookHandler - supports 
- * Phonebook operations
- * 
- * Use a map to build the Phonebook
- * key: Contact
- * value: List<phonebookEntries>
- */
+public interface PhonebookHandler {
+	
+	//bubble sort / merge sort would do it
+	public List<Contact> sortByName();
+	
+	/*
+	 * To implement searchByName using binary search, we need to make sure that the
+	 * phonebook is sorted by names. Here's the modified sortByKeys method using
+	 * Merge Sort, followed by the implementation of searchByName using binary
+	 * search:
+	 */
+	public List<PhonebookEntry> binarySearch(List<Contact> sortedContacts, String name);
 
-public class PhonebookHandler implements iPhonebookHandler {
-
-    private Map<Contact, List<PhonebookEntry>> phonebook;
-    
-    public PhonebookHandler(Map<Contact, List<PhonebookEntry>> phonebook) {
-
-        this.phonebook = phonebook;
-
-    }
-
-    @Override
-    public void display(List<Contact> sortedContacts) {
-
-        sortedContacts.forEach((contact) -> {
-
-            System.out.println("Contact: " + contact.getName()); // TODO: make better
-
-
-        });
-
-    }
-    
-    
-    @Override
-    public List<Contact> sortByName() {
-
-        return null; // TODO: implement sort
-
-    }
-
-    @Override
-    public List<PhonebookEntry> binarySearch(List<Contact> sortedContacts, String name) {
-
-        return null; // TODO: implement binary search
-
-    }
-
+	//iterate over the contacts.  
+	//no sorting here, just display
+	public void display(List<Contact> sortedContacts);
 }
