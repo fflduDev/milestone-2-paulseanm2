@@ -1,19 +1,19 @@
 package Milestone2;
 
+import Milestone2.Models.Contact;
+import Milestone2.Models.PhonebookEntry;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
-import Milestone2.Models.Contact;
-import Milestone2.Models.PhonebookEntry;
 
 public class TestHarness {
 
 	// Contact overrides hashcode && equals.  Observe collision here.
 	
 	private static Map<Contact, List<PhonebookEntry>> phonebook = new HashMap<>();
-	private static Contact p1, p2, p3, p4, p5;
+	private static List <Contact> contacts = new ArrayList<>();
 	private static PhonebookHandlerImpl phonebookHander;
 
 
@@ -124,14 +124,28 @@ public class TestHarness {
 		System.out.println("Building Contacts ....");
 		TimeUnit.SECONDS.sleep(1);
 
-		p1 = new Contact("Jan");
-		p2 = new Contact("Stan");
-		p3 = new Contact("Juan");
-		p4 = new Contact("Mun");
-		p5 = new Contact("Ran");
+		contacts.add(new Contact("Jan"));
+		contacts.add(new Contact("Stan"));
+		contacts.add(new Contact("Juan"));
+		contacts.add(new Contact("Mun"));
+		contacts.add(new Contact("Ran"));
+		contacts.add(new Contact("Steve"));
+		contacts.add(new Contact("Sean"));
+		contacts.add(new Contact("Paul"));
+		contacts.add(new Contact("John"));
+		contacts.add(new Contact("Jane"));
+
+	
 
 		System.out.println("Building Phonebook Entries ....");
 		TimeUnit.SECONDS.sleep(1);
+
+		Contact p1 = contacts.get(0);
+		Contact p2 = contacts.get(1);
+		Contact p3 = contacts.get(2);
+		Contact p4 = contacts.get(3);
+		Contact p5 = contacts.get(4);
+		
 
 		p1.addPhonebookEntry("2034032233", "Home");
 		p1.addPhonebookEntry("5532233322", "Cell");
@@ -156,11 +170,11 @@ public class TestHarness {
 		System.out.println("Adding Entries to the phonebook ....\n");
 		TimeUnit.SECONDS.sleep(1);
 
-		phonebook.put(p1, p1.getPhonebookEntries()); // put ultimately calls overriden hashCode
-		phonebook.put(p2, p2.getPhonebookEntries());
-		phonebook.put(p3, p3.getPhonebookEntries());
-		phonebook.put(p4, p4.getPhonebookEntries());
-		phonebook.put(p5, p5.getPhonebookEntries());
+		for (Contact contact : contacts) {
+
+			phonebook.put(contact, contact.getPhonebookEntries());
+
+		}
 
 	}
 
