@@ -145,6 +145,11 @@ public class TestHarness {
 		Contact p3 = contacts.get(2);
 		Contact p4 = contacts.get(3);
 		Contact p5 = contacts.get(4);
+		Contact p6 = contacts.get(5);
+		Contact p7 = contacts.get(6);
+		Contact p8 = contacts.get(7);
+		Contact p9 = contacts.get(8);
+		Contact p10 = contacts.get(9);
 		
 
 		p1.addPhonebookEntry("2034032233", "Home");
@@ -166,6 +171,27 @@ public class TestHarness {
 		p5.addPhonebookEntry("0034032233", "Home");
 		p5.addPhonebookEntry("0532233322", "Cell");
 		p5.addPhonebookEntry("0120092829", "Work");
+
+        p6.addPhonebookEntry("8623699193", "Home");
+        p6.addPhonebookEntry("9842709355", "Cell");
+        p6.addPhonebookEntry("9487193688", "Work");
+
+		p7.addPhonebookEntry("9328572984", "Home");
+        p7.addPhonebookEntry("2387138932", "Cell");
+        p7.addPhonebookEntry("1295084206", "Work");
+
+        p8.addPhonebookEntry("8325672984", "Home");
+        p8.addPhonebookEntry("2385792486", "Cell");
+        p8.addPhonebookEntry("5398670213", "Work");
+		
+		p9.addPhonebookEntry("3198574690", "Home");
+        p9.addPhonebookEntry("4039678093", "Cell");
+        p9.addPhonebookEntry("2093486496", "Work");
+
+		p10.addPhonebookEntry("4830692368", "Home");
+        p10.addPhonebookEntry("1237859851", "Cell");
+        p10.addPhonebookEntry("3304968215", "Work");
+
 
 		System.out.println("Adding Entries to the phonebook ....\n");
 		TimeUnit.SECONDS.sleep(1);
