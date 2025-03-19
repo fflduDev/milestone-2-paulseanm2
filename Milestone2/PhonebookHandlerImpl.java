@@ -30,8 +30,7 @@ public class PhonebookHandlerImpl implements PhonebookHandler {
 
         sortedContacts.forEach((contact) -> {
 
-            System.out.println("Contact: " + contact.getName()); // TODO: make better
-
+            System.out.println("Contact: " + contact.getName()); 
 
         });
 
@@ -51,8 +50,32 @@ public class PhonebookHandlerImpl implements PhonebookHandler {
     @Override
     public List<PhonebookEntry> binarySearch(List<Contact> sortedContacts, String name) {
 
-        return null; // TODO: implement binary search
+        int low = 0;
+        int high = sortedContacts.size() - 1;
 
+        while (low <= high) {
+
+            int mid = (low + high) / 2; // getting the middle index
+            Contact midContact = sortedContacts.get(mid);
+
+            if (midContact.getName().equals(name)) {
+
+                return phonebook.get(midContact); // found
+
+            } else if (midContact.getName().compareTo(name) < 0) {
+
+                low = mid + 1; // moving to the right
+
+            } else {
+
+                high = mid - 1; // moving to the left
+
+            }
+
+        }
+
+        return null; // Not found
+        
     }
 
 }

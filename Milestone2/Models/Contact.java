@@ -50,6 +50,23 @@ public class Contact implements Comparable<Contact> {
     // override hashCode and equals
 
     @Override
+    public String toString() {
+
+        String toDisplay = String.format("Contact: %s", this.name);
+
+        for (PhonebookEntry entry : this.phonebookEntries) {
+
+            toDisplay += String.format("\n\tPhone Number: %s, Type: %s", entry.getPhoneNumber(), entry.getType());
+
+        }
+
+        toDisplay += "\n";
+
+        return toDisplay;
+
+    }
+
+    @Override
     public int compareTo(Contact other) {
 
         return this.name.compareTo(other.getName());
@@ -59,9 +76,7 @@ public class Contact implements Comparable<Contact> {
     @Override 
     public int hashCode() {
 
-        // making use of built-in hashcode functionality for String and List
-
-        return this.name.hashCode() + this.phonebookEntries.hashCode();
+        return this.name.hashCode();
 
     }
     
@@ -70,7 +85,7 @@ public class Contact implements Comparable<Contact> {
 
         // checks name and entries list
 
-        if ((this instanceof Contact)) return false; // not same obj
+        if (!(this instanceof Contact)) return false; // not same obj
 
         if (this == otherObj) return true; // same mem address
     
