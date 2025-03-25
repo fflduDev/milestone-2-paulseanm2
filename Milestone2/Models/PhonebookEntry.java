@@ -1,10 +1,9 @@
 package Milestone2.Models;
 
-/**
- *   model a PhonebookEntry 
- *   PhonebookEntry has a phoneNumber and type
+/*
+ * PhonebookEntry models a phone number and its type (work, home, mobile).
+ * It is used in the Contact class to store multiple phone numbers for a single contact.
 */
-
 public class PhonebookEntry {
 
     private String phoneNumber;

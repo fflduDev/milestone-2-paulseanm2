@@ -3,16 +3,10 @@ package Milestone2.Models;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * model a Contact 
- * Contact has a name & list of phonebook entries
- * 
- * Support adding phonebookEntry to a contact
- * 
- * @Override hashCode and equals
- * 
- */
-
+/*
+ * Contact models a person. They logically have multiple phone numbers (work, home, mobile), and 
+ * those numbers are stored in a list of PhonebookEntry objects.
+*/
 public class Contact implements Comparable<Contact> {
 
     private String name;

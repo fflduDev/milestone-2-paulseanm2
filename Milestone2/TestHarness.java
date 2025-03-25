@@ -2,6 +2,7 @@ package Milestone2;
 
 import Milestone2.Models.Contact;
 import Milestone2.Models.PhonebookEntry;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,11 +12,14 @@ import java.util.concurrent.TimeUnit;
 
 public class TestHarness {
 
-	// Contact overrides hashcode && equals. Observe collision here.
+	// Declarations
 	
 	private static Map<Contact, List<PhonebookEntry>> phonebook = new HashMap<>();
-	private static List <Contact> contacts = new ArrayList<>();
+	private static List<Contact> contacts = new ArrayList<>();
+	
 	private static PhonebookHandlerImpl phonebookHander;
+
+	// Util Methods
 
 	public static void seperator() {
 
@@ -23,13 +27,17 @@ public class TestHarness {
 
 	}
 
+	// "Tester"
+
 	public static void main(String[] args) throws InterruptedException {
-		
+
+		// Building Contacts
+
 		init();
 
 		seperator();
 
-		// initially print list of contacts	
+		// Printing Built Contacts	
 
 		System.out.println("Contacts in the phonebook: \n");
 
@@ -41,38 +49,36 @@ public class TestHarness {
 
 		seperator();
 
-		// //display non equality using your overriden equals method
-		// //display equality using your overriden equals method
+		// Equality Test
 
 		TEST_Equals(contacts.get(0), contacts.get(1));
 		TEST_Equals(contacts.get(2), contacts.get(2));
 
 		seperator();
-		
-		// //display hashcode case that demonstrates collision
-		// //display hashcode case that demonstrates non- collision
+
+		// HashCode Test
 
 		TEST_hashcode(contacts.get(0), contacts.get(1));
 		TEST_hashcode(contacts.get(2), contacts.get(2));
 
 		seperator();
 
-		// //Create the phonebook handler
+		// Sort Test
+
 		phonebookHander = new PhonebookHandlerImpl(phonebook);
-		
+
 		List<Contact> sortedContacts = TEST_Sort(phonebookHander);
 		TEST_Display(sortedContacts);
 
 		seperator();
-		
-		// // 2 cases:
-		// // 1) a call to search finds the user and displays their entries 
-		// //(2) a call to search does not find the user & displays some detail illustrating same
-		
+
+		// Search Test
+
 		TEST_Search(phonebookHander, sortedContacts, "Juan");
 
 	}
-
+	
+	// Test Helper Methods
 	
 	public static List<Contact> TEST_Sort(PhonebookHandlerImpl phonebookHandler) {
 		
@@ -80,7 +86,6 @@ public class TestHarness {
 		return sortedContacts;
 
 	}
-
 	
 	public static void TEST_Search(PhonebookHandlerImpl phonebookHandler, List<Contact> sortedContacts, String name) {
 		  
@@ -132,8 +137,14 @@ public class TestHarness {
 		System.out.println();
 
 	}
-	
+
+	/*
+	 * Util method for generating fake phone numbers.
+	 * Natrually, we didn't want to write out n phone numbers for n fake contacts, so this helps us procedurally generate them using just list of common names 
+	*/
 	public static String generateRandomNumberString(int length) {
+
+		// funny way of doing it but it ensures length is always 10 digits long
 
 		Random random = new Random();
 		String stringNumber = "";
@@ -150,20 +161,15 @@ public class TestHarness {
 	}
  
 	/**
-	 * 
-	 * Build 5 contacts
-	 * Add 1-3 phonebook entries per contact.   Some must have > 1.
-	 * 'Put' into the phonebook map key-value pairs of the form contact, List<PhonebookEntries>
-	 * 
-	 * Feel free to update 
-	 * 
+	 * Builds the phonebook with fake contacts and phone numbers.
 	 * @throws InterruptedException
 	*/
-	
 	public static void init() throws InterruptedException {
 
 		System.out.println("Building Contacts ....");
 		TimeUnit.SECONDS.sleep(1);
+		
+		// len(commonNames) contacts will be created. (see the phone number generator function comments)
 
 		String[] commonNames = { "John", "Jane", "Steve", "Sean", "Paul", "Jan", "Stan", "Juan", "Mun", "Ran" };
 
@@ -178,6 +184,8 @@ public class TestHarness {
 		
 		for (Contact contact : contacts) {
 
+			// adds 3 random phone numbers to each contact
+
 			contact.addPhonebookEntry(generateRandomNumberString(10), "Home");
 			contact.addPhonebookEntry(generateRandomNumberString(10), "Cell");
 			contact.addPhonebookEntry(generateRandomNumberString(10), "Work");
@@ -186,6 +194,8 @@ public class TestHarness {
 
 		System.out.println("Adding Entries to the phonebook ....\n");
 		TimeUnit.SECONDS.sleep(1);
+
+		// puts the contact and associated phonebook entries into a map
 
 		for (Contact contact : contacts) {
 

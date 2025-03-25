@@ -7,14 +7,10 @@ import Utils.Sorting;
 import java.util.*;
 
 /**
- * PhonebookHandler - supports 
- * Phonebook operations
- * 
- * Use a map to build the Phonebook
- * key: Contact
- * value: List<phonebookEntries>
- */
-
+ * PhonebookHandlerImpl implements the PhonebookHandler interface.
+ * It provides methods to sort contacts by name, perform binary search on sorted contacts,
+ * and display the contacts in the phonebook.
+*/
 public class PhonebookHandlerImpl implements PhonebookHandler {
 
     private Map<Contact, List<PhonebookEntry>> phonebook;
@@ -25,17 +21,24 @@ public class PhonebookHandlerImpl implements PhonebookHandler {
 
     }
 
+    /*
+     * Displays each by name, logically after the names are sorted
+    */
     @Override
     public void display(List<Contact> sortedContacts) {
 
         sortedContacts.forEach((contact) -> {
 
-            System.out.println("Contact: " + contact.getName()); 
+            System.out.println("Contact: " + contact.getName());
 
         });
 
     }
     
+    /*
+     * Calls the main quickSort function from Sorting class to sort the contacts by name.
+     * Returns a list of sorted contacts.
+    */
     @Override
     public List<Contact> sortByName() {
 
@@ -47,11 +50,15 @@ public class PhonebookHandlerImpl implements PhonebookHandler {
 
     }
 
+    /*
+     * Searches contacts by name using binary search.
+     * Returns the list of phonebook entries for the contact with the given name.
+    */
     @Override
     public List<PhonebookEntry> binarySearch(List<Contact> sortedContacts, String name) {
 
         int low = 0;
-        int high = sortedContacts.size() - 1;
+        int high = sortedContacts.size() - 1; // last index
 
         while (low <= high) {
 
