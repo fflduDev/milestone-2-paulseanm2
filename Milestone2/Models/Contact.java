@@ -56,7 +56,7 @@ public class Contact implements Comparable<Contact> {
 
         for (PhonebookEntry entry : this.phonebookEntries) {
 
-            toDisplay += String.format("\n\tPhone Number: %s, Type: %s", entry.getPhoneNumber(), entry.getType());
+            toDisplay += String.format("\n\tPhone Number: %s, Type: %s", entry.getPhoneNumber(), entry.getType()); // each entry is indented 
 
         }
 
